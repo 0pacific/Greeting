@@ -7,11 +7,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity {
 
     private TextView outputView;
     private EditText inputName;
-    private Button okButton;
+    private Button ok_Button;
 
 
 
@@ -23,17 +23,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         outputView = (TextView)findViewById(R.id.output_view);
         inputName = (EditText)findViewById(R.id.input_name);
-        okButton = (Button)findViewById(R.id.ok_button);
+        ok_Button = (Button)findViewById(R.id.ok_button);
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.ok_button:
-                String name = inputName.getText().toString();
-                if(name != null && name.length() > 0)
-                    outputView.setText("Hello, " + name + "\nNice to see you!");
-                break;
+    public void greet(View v) {
+        String name = inputName.getText().toString();
+        if(name.length() > 0){
+            outputView.setText("Hello , " + name + ".\nNice to see you!");
         }
     }
 }
